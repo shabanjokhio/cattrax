@@ -1,0 +1,5 @@
+<html>
+<body>
+<h3>Dear ${patient.patientFirstNames}, Welcome to Cattrax...!</h3>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Patient Detail</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <form class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Patient NHI:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientNHI}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Patient's First Names:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientFirstNames}"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Patient's Last Name:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.lastName}"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Date of Birth:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientDOB}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient Phone Number</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientPhoneNumber}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient Email:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientEmail}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Gender:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientGender}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient's Ethnicity:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientEthnicity}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Last Smoking? :</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.patientSmoking}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient's Health Insurance</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.healthInsuranceProvider}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient Referred By:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.referredBy}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient Registered At:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.registeredAt}"></p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Patient Registered By:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${patient.registeredBy}"></p>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

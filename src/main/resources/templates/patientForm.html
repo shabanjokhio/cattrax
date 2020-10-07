@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register New Patient- Patient Registration Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+
+    <h2>Enter Patient Details:</h2>
+    <div>
+        <form class="form-horizontal" th:object="${patient}" th:action="@{/savePatient}" method="post">
+            <input type="hidden" th:field="*{patientId}"/>
+            <input type="hidden" th:field="*{version}"/> <!-- spring guru says this is important to be able to update the product, but it does not seem to create any issue with me, and works all fine: -->
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First Names: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{patientFirstNames}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Last Name:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{lastName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Phone Number:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{patientPhoneNumber}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient Email: </label>
+                <div class="col-sm-5">
+                    <input type="email" class="form-control" th:field="*{patientEmail}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient DOB: </label>
+                <div class="col-sm-5">
+                    <input type="date" class="form-control" th:field="*{patientDOB}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient NHI: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{patientNHI}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient Gender: </label>
+                <div class="col-sm-5">
+                    <input list="gender" name="patientgender" class="form-control" th:field="*{patientGender}" />
+                    <datalist id="gender">
+                        <option value="MALE">Male</option>
+                        <option value="FEMALE">Female</option>
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient Ethnicity: </label>
+                <div class="col-sm-5">
+                    <input list="ethnicity" name="patientEthnicity" class="form-control" th:field="*{patientEthnicity}" />
+                    <datalist id="ethnicity">
+                        <option value="NZ_EUROPEAN">New Zealand European</option>
+                        <option value="MAORI">Maori</option>
+                        <option value="SAMOAN">Samoan</option>
+						<option value="COOK_ISLAND_MAORI">Cook Island Maori</option>
+						<option value="TONGAN">Tongan</option>
+						<option value="NIUEAN">Niuean</option>
+						<option value="CHINESE">Chinese</option>
+						<option value="INDIAN">Indian</option>
+						<option value="OTHER">Other</option>												
+                    </datalist>
+                </div>
+            </div>
+           <!-- <label class="col-sm-2 control-label">Patient Address: </label>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Address line 1:</label>
+                <div class="col-sm-5">
+                        <input type="text" class="form-control" th:field="*{patientAddress.addressLine1}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Address Line 2:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{patientAddress.addressLine2}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Address Line 3:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{patientAddress.addressLine3}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Address Line 4:</label>
+                <div class="col-sm-5">
+                        <input type="text" class="form-control" th:field="*{patientAddress.addressLine4}"/>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"> Address Line 5: </label>
+                <div class="col-sm-5">
+                        <input type="text" class="form-control" th:field="*{patientAddress.addressLine5}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Post code:</label>
+                <div class="col-sm-5">
+                        <input type="text" class="form-control" th:field="*{patientAddress.postCode}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">  City:</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" th:field="*{patientAddress.city}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label"> Country: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{patientAddress.country}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">  Address Type:</label>
+                <div class="col-sm-5">
+                            <input list="patientAddressType" name="patientAddressType" class="form-control" th:field="*{patientAddress.type}" />
+                            <datalist id="patientAddressType">
+                                <option value="PHYSICAL">Physical</option>
+                                <option value="POSTAL">Postal</option>
+                            </datalist>
+                </div>
+            </div>
+            <!-- TODO: include address type: -->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient Smoking:</label>
+                <div class="col-sm-5">
+                    <input list="patientsmoking" name="patientsmoking" class="form-control" th:field="*{patientSmoking}" />
+                    <datalist id="patientsmoking">
+                        <option value="YES">Yes</option>
+                        <option value="NO">No</option>
+                        <option value="EX_28_DAYS_AGO">Ex 28 Days Ago</option>
+                    </datalist>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patient Health insurance: </label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{healthInsuranceProvider}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Referred By: </label>
+                <div class="col-sm-5">
+                    <input type="text" value= "null" class="form-control" th:field="*{referredBy}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Registered By: </label>
+                <div class="col-sm-5">
+                    <input type="text" value="null" class="form-control" th:field="*{registeredBy}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Registered At: </label>
+                <div class="col-sm-5">
+                    <input type="text" value="null" class="form-control" th:field="*{registeredAt}"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit patient Form</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

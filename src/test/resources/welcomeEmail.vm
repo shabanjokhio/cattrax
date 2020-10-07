@@ -1,0 +1,11 @@
+<html>
+<body>
+<h3>Dear ${firstName}, ${lastName}, Welcome to Cattrax Ltd...!</h3>
+    Nice to see, ${firstName}, you had signed up on Cattrax Ltd.
+
+If you have any questions, please feel free to bother us on 0800-111-000
+
+Kind regards,
+ CatTrax Ltd, NZ.
+</body>
+</html>
